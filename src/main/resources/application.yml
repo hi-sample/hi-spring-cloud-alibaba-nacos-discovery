@@ -1,0 +1,27 @@
+var:
+  nacos:
+    addr: test.nacos-in.hifor.net:8848
+    username: nacos-sample
+    password: "Ry*UuP6#k$VE^BLr"
+    namespace: de16af61-c5b9-41ec-b594-6c7e88bb57ca
+    group: sample-group
+
+server:
+  #default port 8080
+  port: 8989
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: nacos-discovery
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${var.nacos.addr}
+        username: ${var.nacos.username}
+        password: ${var.nacos.password}
+        namespace: ${var.nacos.namespace}
+        group: ${var.nacos.group}
+        enabled: true
+        instance-enabled: true
